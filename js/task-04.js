@@ -1,18 +1,26 @@
-const decrementButton = document.querySelector('[data-action="decrement"]');
-const incrementButton = document.querySelector('[data-action="increment"]');
-const spanValueEl = document.querySelector("#value");
+// Счетчик состоит из спана и кнопок, которые, при клике, должны увеличивать и уменьшать его значение на единицу.
+// Создай переменную counterValue в которой будет храниться текущее значение счетчика и инициализируй её значением 0.
+// Добавь слушатели кликов на кнопки, внутри которых увеличивай или уменьшай значение счтетчика.
+// Обновляй интерфейс новым значением переменной counterValue.
+
+const refs = {
+  decrementButton: document.querySelector('[data-action="decrement"]'),
+  incrementButton: document.querySelector('[data-action="increment"]'),
+  spanValue: document.querySelector("#value"),
+};
+
 const initialStateOfValue = 50;
-spanValueEl.textContent = initialStateOfValue;
+refs.spanValue.textContent = initialStateOfValue;
 let counterValue = initialStateOfValue;
 
-decrementButton.addEventListener("click", () => {
+refs.decrementButton.addEventListener("click", () => {
   counterValue -= 1;
-  spanValueEl.textContent = counterValue;
+  refs.spanValue.textContent = counterValue;
 });
 
-incrementButton.addEventListener("click", () => {
+refs.incrementButton.addEventListener("click", () => {
   counterValue += 1;
-  spanValueEl.textContent = counterValue;
+  refs.spanValue.textContent = counterValue;
 });
 
 // Можно вынести функции отдельно, хотя там всего две строчки
